@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:blogChannel="http://backend.userland.com/blogChannelModule">
+
+<channel>
+<title>Yahoo!ニュース・トピックス - トップ</title>
+<link>http://dailynews.yahoo.co.jp/fc/</link>
+<description>Yahoo! JAPANのニュース・トピックスで取り上げている最新の見出しを提供しています。</description>
+<language>ja</language>
+<pubDate>Mon, 08 Oct 2012 20:19:42 +0900</pubDate>
+
+<item>
+<title>iPS 山中伸弥氏にノーベル賞</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/world/nobel_prize/</link>
+<pubDate>Mon, 08 Oct 2012 18:40:38 +0900</pubDate><enclosure length="133" url="http://i.yimg.jp/images/icon/photo.gif" type="image/gif" />
+
+<guid isPermaLink="false">yahoo/news/topics/6070274</guid>
+</item>
+
+<item>
+<title>内閣改造も支持率低下 産経</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/domestic/public_opinion_poll/</link>
+<pubDate>Mon, 08 Oct 2012 20:06:07 +0900</pubDate>
+<guid isPermaLink="false">yahoo/news/topics/6070261</guid>
+</item>
+
+<item>
+<title>「生意気」と歩行者3人はねる</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/domestic/injury_case/</link>
+<pubDate>Mon, 08 Oct 2012 18:33:42 +0900</pubDate>
+<guid isPermaLink="false">yahoo/news/topics/6070271</guid>
+</item>
+
+<item>
+<title>イスラエルに報復攻撃 ハマス</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/world/palestine/</link>
+<pubDate>Mon, 08 Oct 2012 19:45:12 +0900</pubDate>
+<guid isPermaLink="false">yahoo/news/topics/6070265</guid>
+</item>
+
+<item>
+<title>自転車型バイクが電動で復活</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/economy/motorcycle/</link>
+<pubDate>Mon, 08 Oct 2012 20:06:07 +0900</pubDate><enclosure length="133" url="http://i.yimg.jp/images/icon/photo.gif" type="image/gif" />
+
+<guid isPermaLink="false">yahoo/news/topics/6070253</guid>
+</item>
+
+<item>
+<title>イチロー 敵地ブーイング喜ぶ</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/sports/ichiro/</link>
+<pubDate>Mon, 08 Oct 2012 20:06:07 +0900</pubDate><enclosure length="133" url="http://i.yimg.jp/images/icon/photo.gif" type="image/gif" />
+
+<guid isPermaLink="false">yahoo/news/topics/6070277</guid>
+</item>
+
+<item>
+<title>上戸&amp;川崎が小久保の引退祝福</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/entertainment/ueto_aya/</link>
+<pubDate>Mon, 08 Oct 2012 19:35:45 +0900</pubDate><enclosure length="133" url="http://i.yimg.jp/images/icon/photo.gif" type="image/gif" />
+
+<guid isPermaLink="false">yahoo/news/topics/6070270</guid>
+</item>
+
+<item>
+<title>元・日テレ丸岡さん 新婚語る</title>
+<link>http://rd.yahoo.co.jp/rss/l/topics/topics/*http://dailynews.yahoo.co.jp/fc/entertainment/broad_casting/</link>
+<pubDate>Mon, 08 Oct 2012 17:29:39 +0900</pubDate><enclosure length="133" url="http://i.yimg.jp/images/icon/photo.gif" type="image/gif" />
+
+<guid isPermaLink="false">yahoo/news/topics/6070264</guid>
+</item>
+
+</channel>
+</rss>

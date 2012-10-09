@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="../lib/jppcore.js"></script>
+		<script type="text/javascript">
+			function trace(message) { console.log(message); }
+
+			jpp.util.Namespace('jpp.event').import();
+
+			function func1(e) { console.log(1, e.type, e.target, e.extra); }
+			function func2(e) { console.log(2, e.type, e.target, e.extra); }
+			function func3(e) { console.log(3, e.type, e.target, e.extra); }
+
+			dispatcher = new EventDispatcher();
+
+			dispatcher.addEventListener('A', func1);
+			dispatcher.addEventListener('A', func1);
+			dispatcher.addEventListener('A', func2);
+			dispatcher.addEventListener('A', func3);
+			dispatcher.removeEventListener('A', func2);
+			dispatcher.dispatchEvent('A');
+
+			console.log(dispatcher.hasEventListener('A'));
+			console.log(dispatcher.hasEventListener('B'));
+
+			dispatcher.addEventListener('A', func1);
+			dispatcher.addEventListener('B', func1);
+			dispatcher.dispatchEvent('A', 'ABCDE');
+			dispatcher.dispatchEvent('B');
+
+			dispatcher.removeAllEventListeners('A');
+			dispatcher.dispatchEvent('A');
+			dispatcher.dispatchEvent('B');
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

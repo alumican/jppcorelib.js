@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+		<script type="text/javascript" src="../lib/jppcore.js"></script>
+		<script type="text/javascript">
+			function trace(message) { console.log(message); }
+
+			jpp.util.Namespace('jpp.command').import();
+
+			var command = new SerialList(
+				new Func(function() {
+					trace("Start");
+				}),
+				new Wait(0.5),
+				new Func(function() {
+					trace("Wait Complete");
+				}),
+				new JqueryGet('sample.xml', null, function(data) {
+					trace(data);
+				}),
+				new Func(function() {
+					trace("Load Complete");
+				}),
+
+				new SerialList(
+					new Func(function() { trace("A"); }),
+					new Func(function() {
+						this.getParent().addCommand(
+							new Wait(0.2),
+							new Func(function() { trace("H"); })
+						);
+					}),
+					new ParallelList(
+						new SerialList(
+							new Wait(1),
+							new Func(function() { trace("C"); })
+						),
+						new SerialList(
+							new Wait(0.5),
+							new Func(function() {
+								trace("B");
+								this.getParent().insertCommand(
+									new Wait(2),
+									new Func(function() { trace("E"); })
+								);
+							}),
+							new Func(function() { trace("F"); })
+						),
+						new SerialList(
+							new Wait(1.5),
+							new Func(function() { trace("D"); })
+						)
+					),
+					new Func(function() { trace("G"); })
+				)
+			);
+			command.execute();
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
