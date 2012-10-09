@@ -54,5 +54,5 @@ class ParallelList extends CommandList
 		super(command)
 
 
-#jppexport('command', ParallelList)
+#export
 Namespace('jpp.command').register('ParallelList', ParallelList)

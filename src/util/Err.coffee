@@ -2,12 +2,9 @@
 Error Util
 ###
 class Err
-	@build: (at, text = '') ->
-		return new Error("Error at #{at}" + (" : #{text}" unless text == ''))
-
-	@throw: (at, text = '') ->
-		throw @build(at, text)
+	Err.build = (at, text = '') -> return new Error("Error at #{at}" + (" : #{text}" unless text == ''))
+	Err.throw = (at, text = '') -> throw Err.build(at, text)
 
 
-#jppexport('util', Err)
+#export
 Namespace('jpp.util').register('Err', Err)

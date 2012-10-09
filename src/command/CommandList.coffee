@@ -45,5 +45,5 @@ class CommandList extends Command
 	_destroyFunction: (command) -> @_commands = []
 
 
-#jppexport('command', CommandList)
+#export
 Namespace('jpp.command').register('CommandList', CommandList)

@@ -43,5 +43,5 @@ class Listen extends Command
 		@_dispatcher = null
 
 
-#jppexport('command', Listen)
+#export
 Namespace('jpp.command').register('Listen', Listen)

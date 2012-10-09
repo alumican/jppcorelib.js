@@ -73,5 +73,5 @@ class JqueryAjax extends Command
 		@_isSucceed = false
 
 
-#jppexport('command', JqueryAjax)
+#export
 Namespace('jpp.command').register('JqueryAjax', JqueryAjax)

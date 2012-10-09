@@ -32,5 +32,5 @@ class JqueryGet extends JqueryAjax
 	###
 
 
-#jppexport('command', JqueryGet)
+#export
 Namespace('jpp.command').register('JqueryGet', JqueryGet)

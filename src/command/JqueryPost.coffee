@@ -32,5 +32,5 @@ class JqueryPost extends JqueryAjax
 	###
 
 
-#jppexport('command', JqueryPost)
+#export
 Namespace('jpp.command').register('JqueryPost', JqueryPost)

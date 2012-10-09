@@ -43,5 +43,5 @@ class Wait extends Command
 		@_cancel()
 
 
-#jppexport('command', Wait)
+#export
 Namespace('jpp.command').register('Wait', Wait)

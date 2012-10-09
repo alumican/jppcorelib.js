@@ -6,7 +6,12 @@
 		<script type="text/javascript">
 			function trace(message) { console.log(message); }
 
-			jpp.util.Namespace('jpp.command').import();
+			jpp.util.Namespace('jpp.command').import('*');
+			jpp.util.Namespace('jpp.util').import('Easing');
+
+			var value0;
+			var value1 = 100;
+			var self = this;
 
 			var command = new SerialList(
 				new Func(function() {
@@ -22,6 +27,18 @@
 				new Func(function() {
 					trace("Load Complete");
 				}),
+
+				new Tween(self, { value0 : 100, value1 : 0 }, { value0 : 0 }, 3, Easing.easeOutExpo,
+					function() {
+						trace('Tween Start    : ' + this.getTimeRatio() + ' ' + this.getRatio() + ' ' + value0 + ' ' + value1);
+					},
+					function() {
+						trace('Tween Update   : ' + this.getTimeRatio() + ' ' + this.getRatio() + ' ' + value0 + ' ' + value1);
+					},
+					function() {
+						trace('Tween Complete : ' + this.getTimeRatio() + ' ' + this.getRatio() + ' ' + value0 + ' ' + value1);
+					}
+				),
 
 				new SerialList(
 					new Func(function() { trace("A"); }),

@@ -23,5 +23,5 @@ class Event
 	constructor: (@type, @target, @extra) ->
 
 
-#jppexport('event', Event)
+#export
 Namespace('jpp.event').register('Event', Event)

@@ -1,6 +1,3 @@
-#jppimport(@, 'util', '*')
-#jppimport(@, 'event', '*')
-
 ###
 Command
 ###
@@ -84,5 +81,5 @@ class Command extends EventDispatcher
 	_destroyFunction: (command) ->
 
 
-#jppexport('command', Command)
+#export
 Namespace('jpp.command').register('Command', Command)

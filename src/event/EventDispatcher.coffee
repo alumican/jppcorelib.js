@@ -37,5 +37,5 @@ class EventDispatcher
 		@
 
 
-#jppexport('event', EventDispatcher)
+#export
 Namespace('jpp.event').register('EventDispatcher', EventDispatcher)

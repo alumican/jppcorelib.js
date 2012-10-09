@@ -127,5 +127,5 @@ class _NamespaceObject
 		@_scope[classname] = @_space[classname]
 
 
-#register myself
+#export myself
 Namespace('jpp.util').register('Namespace', Namespace).use()

@@ -7,5 +7,5 @@ class CommandState
 	@INTERRUPTING = 2
 
 
-#jppexport('command', CommandState)
+#export
 Namespace('jpp.command').register('CommandState', CommandState)

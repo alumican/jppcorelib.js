@@ -61,5 +61,5 @@ class SerialList extends CommandList
 		super(command)
 
 
-#jppexport('command', SerialList)
+#export
 Namespace('jpp.command').register('SerialList', SerialList)

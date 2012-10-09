@@ -6,15 +6,19 @@ class Func extends Command
 	###
 	Constructor
 	###
-	constructor: (func = null, args = []) ->
+	constructor: (func = null, args = [], dispatcher = null, eventType = null) ->
 		super()
 		@_func = func
 		@_args = args
+		@_dispatcher = dispatcher
+		@_eventType = eventType
 
 
 	###
 	Method
 	###
+	_completeHandler: (event) =>
+		@notifyComplete()
 
 
 	###
@@ -31,15 +35,23 @@ class Func extends Command
 	Protected
 	###
 	_executeFunction: (command) ->
-		@_func?(@_args...)
-		@notifyComplete()
+		if @_dispatcher? && @_eventType?
+			@_dispatcher.addEventListener(@_eventType, @_completeHandler)
+			@_func?(@_args...)
+		else
+			@_func?(@_args...)
+			@notifyComplete()
 
 	_interruptFunction: (command) ->
+		if @_dispatcher? && @_eventType?
+			@_dispatcher.removeEventListener(@_eventType, @_completeHandler)
 
 	_destroyFunction: (command) ->
 		@_func = null
 		@_args = null
+		@_dispatcher = null
+		@_eventType = null
 
 
-#jppexport('command', Func)
+#export
 Namespace('jpp.command').register('Func', Func)
