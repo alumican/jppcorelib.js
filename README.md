@@ -1,7 +1,7 @@
 # jppcorelib.js
 
 ## Namespace
-`jpp.util.Namespace` provides the name  space system.
+`jpp.util.Namespace` provides the name  space system.  
 `jpp.util.Namespace`は名前空間の仕組みを提供するクラス。
 
 
