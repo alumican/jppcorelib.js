@@ -40,6 +40,8 @@ jpp.util.Namespace('jpp.command').import('*');
 jpp.util.Namespace('jpp.command').import('*');
 jpp.util.Namespace('jpp.util').import('Easing');
 
+function trace(message) { console.log(message); }
+
 var value0;
 var value1 = 100;
 var self = this;
