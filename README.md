@@ -109,7 +109,6 @@ Namespace.enumerate();
 
 ### Install
 各種`Command`クラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.command`名前空間に登録されている。
-
 `jpp.command.クラス名`でアクセスしたい場合は以下のコードを書く。
 
 ```javascript
@@ -215,8 +214,7 @@ command.execute();
 `jpp.event.*`はAS3ライクなイベントシステムを提供するクラス群。
 
 ### Install
-各種イベントクラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.event`名前空間に登録されている。
-
+各種イベントクラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.event`名前空間に登録されている。  
 `jpp.event.クラス名`でアクセスしたい場合は以下のコードを書く。
 
 ```javascript
