@@ -25,6 +25,21 @@ class ParallelList extends CommandList
 	_completeHandler: (event) =>
 		@notifyComplete() if ++@_completeCount >= @getLength()
 
+	notifyBreak: () ->
+		for c in @getCommands()
+			if c.getState() == CommandState.EXECUTING
+				c.removeEventListener(Event.COMPLETE, @_completeHandler)
+				c.interrupt()
+		@notifyComplete()
+
+	notifyReturn: () ->
+		for c in @getCommands()
+			if c.getState() == CommandState.EXECUTING
+				c.removeEventListener(Event.COMPLETE, @_completeHandler)
+				c.interrupt()
+		@getParent()?.notifyReturn()
+		@destroy()
+
 
 	###
 	Getter / Setter
@@ -43,7 +58,9 @@ class ParallelList extends CommandList
 
 
 	_interruptFunction: (command) ->
-		c.interrupt() for c in @getCommands()
+		for c in @getCommands()
+			c.removeEventListener(Event.COMPLETE, @_completeHandler)
+			c.interrupt()
 		super(command)
 
 	_destroyFunction: (command) ->

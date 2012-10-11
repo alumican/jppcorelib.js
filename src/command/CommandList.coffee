@@ -28,6 +28,8 @@ class CommandList extends Command
 	_setParent: (commands...) ->
 		c.setParent(@) for c in commands
 
+	notifyBreak: () ->
+	notifyReturn: () ->
 
 	###
 	Getter / Setter

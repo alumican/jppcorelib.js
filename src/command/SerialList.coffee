@@ -33,6 +33,19 @@ class SerialList extends CommandList
 		@_currentCommand = null
 		if ++@_position >= @getLength() then @notifyComplete() else @_next()
 
+	notifyBreak: () ->
+		if @_currentCommand?.getState() == CommandState.EXECUTING
+			@_currentCommand.removeEventListener(Event.COMPLETE, @_completeHandler)
+			@_currentCommand.interrupt()
+		@notifyComplete()
+
+	notifyReturn: () ->
+		if @_currentCommand?.getState() == CommandState.EXECUTING
+			@_currentCommand.removeEventListener(Event.COMPLETE, @_completeHandler)
+			@_currentCommand.interrupt()
+		@getParent()?.notifyReturn()
+		@destroy()
+
 
 	###
 	Getter / Setter
@@ -45,10 +58,13 @@ class SerialList extends CommandList
 	###
 	_executeFunction: (command) ->
 		@_position = 0
-		@_next()
+		if @getLength() > 0 then @_next() else @notifyComplete()
 
 	_interruptFunction: (command) ->
-		@_currentCommand?.interrupt()
+		if @_currentCommand?
+			@_currentCommand.removeEventListener(Event.COMPLETE, @_completeHandler)
+			@_currentCommand.interrupt()
+		@_currentCommand = null
 		@_position = 0
 		super(command)
 

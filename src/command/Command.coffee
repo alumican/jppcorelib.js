@@ -25,9 +25,9 @@ class Command extends EventDispatcher
 		@
 
 	interrupt: () ->
-		Err.throw('Command.interrupt', 'Command is sleeping') if @_state < CommandState.EXECUTING
-		@_state = CommandState.INTERRUPTING
-		@getInterruptFunction().call(this, this)
+		if @_state == CommandState.EXECUTING
+			@_state = CommandState.INTERRUPTING
+			@getInterruptFunction().call(this, this)
 		@
 
 	destroy: () ->

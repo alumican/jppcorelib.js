@@ -35,7 +35,7 @@ build = (outputfile, srcfiles) ->
 		if error
 			util.log('build failed!')
 		else
-			util.log("build succeeded! -> #{outputfile}")
+			util.log("build succeeded! -> #{outputfile}.js")
 
 minify = (outputfile) ->
 	muffin.run
@@ -57,6 +57,8 @@ setTask('jppcorelib', [
 	'command/CommandList'
 	'command/SerialList'
 	'command/ParallelList'
+	'command/Break'
+	'command/Return'
 	'command/Func'
 	'command/Wait'
 	'command/Listen'

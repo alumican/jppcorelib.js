@@ -28,7 +28,7 @@
 					trace("Load Complete");
 				}),
 
-				new Tween(self, { value0 : 100, value1 : 0 }, { value0 : 0 }, 3, Easing.easeOutExpo,
+				new Tween(self, { value0 : 100, value1 : 0 }, { value0 : 0 }, 1, Easing.easeOutExpo,
 					function() {
 						trace('Tween Start    : ' + this.getTimeRatio() + ' ' + this.getRatio() + ' ' + value0 + ' ' + value1);
 					},
