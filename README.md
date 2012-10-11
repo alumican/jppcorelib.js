@@ -1,4 +1,5 @@
 # jppcorelib.js
+The following packages are very alpha version.
 
 ## Command
 `jpp.command.*` provides the sequential command system.  
