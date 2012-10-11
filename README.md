@@ -85,6 +85,8 @@ var command = new SerialList(
 			new SerialList(
 				new Wait(1),
 				new Func(function() { trace("C"); })
+				new Break(),
+				new Func(function() { trace("Never"); })
 			),
 			new SerialList(
 				new Wait(0.5),
