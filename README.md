@@ -135,6 +135,11 @@ Namespace('foo.bar').register('Hello', function Hello() { return 'Hello'; });
 Namespace('foo.bar').register('World', function World() { return 'World'; });
 ```
 
+```javascript
+//デフォルトでは同名の名前空間に同名のオブジェクトを登録することはできないが、第3引数をtrueにすると上書き登録できる。
+Namespace('foo.bar').register('Hello', function Hello2() { return 'Hello2'; }, true);
+```
+
 ##### Namespace(‘名前空間’).use()
 ‘名前空間’に属するオブジェクトをグローバルへインポートする。  
 インポート後のオブジェクトには完全修飾名でアクセスできる。
