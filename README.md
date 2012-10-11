@@ -2,21 +2,23 @@
 
 ## Namespace
 `jpp.util.Namespace` provides the namespace system.
+`jpp.util.Namespace`は名前空間の仕組みを提供するクラス。
+
 
 ### Install
-Namespaceクラスはデフォルトでwindowオブジェクトのjpp.util名前空間に登録されている。
-jpp.util.Namespaceではなく、Namespaceのみでアクセスしたい場合は以下のコードを書く。
+`Namespace`クラスはデフォルトで`window`オブジェクトの`jpp.util`名前空間に登録されている。
+`jpp.util.Namespace`ではなく、`Namespace`のみでアクセスしたい場合は以下のコードを書く。
 
 ```javascript
 jpp.util.Namespace('jpp.util').import('Namespace');
 ```
 
 #### How to Use
-基本的にNamespace(‘名前空間’)で任意の名前空間を指定し、そこに対するメソッドを呼び出すことで名前空間を直感的に操作できる。
+基本的に`Namespace(‘名前空間’)`で任意の名前空間を指定し、そこに対するメソッドを呼び出すことで名前空間を直感的に操作できる。
 
 ##### Namespace(‘名前空間’).resister(‘オブジェクト名’, オブジェクト, 上書きフラグ)
 ‘名前空間’に任意のオブジェクト(関数,クラス,数値,文字列などなんでも)を’オブジェクト名’として登録する。
-ここで登録したオブジェクトには、後述のuseもしくはimportするまでアクセスすることはできない。
+ここで登録したオブジェクトには、後述の`use`もしくは`import`するまでアクセスすることはできない。
 
 ```javascript
 //foo.bar名前空間にHello関数とWorld関数を登録する
@@ -66,7 +68,7 @@ World();
 ```
 
 ##### Namespace(‘名前空間’).scope(スコープ)
-useもしくはimport使用時の名前空間およびオブジェクトのインポート先を指定した’スコープ’に変更する。
+`use`もしくは`import`使用時の名前空間およびオブジェクトのインポート先を指定した’スコープ’に変更する。
 
 ```javascript
 //インポート先をデフォルトのグローバル(window)からmyscopeへ変更する
@@ -102,18 +104,19 @@ Namespace.enumerate();
 ```
 
 ## Command
-`jpp.command.*` provides the namespace system.
+`jpp.command.*` provides the sequential command system.
+`jpp.command.*`はProgressionライクなコマンドシステムを提供するクラス群。
 
 ### Install
-各種Commandクラスはデフォルトでjpp.util.Namespaceクラスのjpp.command名前空間に登録されている。
+各種`Command`クラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.command`名前空間に登録されている。
 
-jpp.command.クラス名でアクセスしたい場合は以下のコードを書く。
+`jpp.command.クラス名`でアクセスしたい場合は以下のコードを書く。
 
 ```javascript
 jpp.util.Namespace('jpp.command').use();
 ```
 
-jpp.command.クラス名ではなく、クラス名のみでアクセスしたい場合は以下のコードを書く。
+`jpp.command.クラス名`ではなく、クラス名のみでアクセスしたい場合は以下のコードを書く。
 
 ```javascript
 jpp.util.Namespace('jpp.command').import('*');
@@ -209,17 +212,18 @@ command.execute();
 
 ## EventDispatcher
 `jpp.event.*` provides the AS3 like event system.
+`jpp.event.*`はAS3ライクなイベントシステムを提供するクラス群。
 
 ### Install
-各種イベントクラスはデフォルトでjpp.util.Namespaceクラスのjpp.event名前空間に登録されている。
+各種イベントクラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.event`名前空間に登録されている。
 
-jpp.event.クラス名でアクセスしたい場合は以下のコードを書く。
+`jpp.event.クラス名`でアクセスしたい場合は以下のコードを書く。
 
 ```javascript
 jpp.util.Namespace('jpp.event').use();
 ```
 
-jpp.event.クラス名ではなく、クラス名のみでアクセスしたい場合は以下のコードを書く。
+`jpp.event.クラス名`ではなく、クラス名のみでアクセスしたい場合は以下のコードを書く。
 
 ```javascript
 jpp.util.Namespace('jpp.event').import('*');
