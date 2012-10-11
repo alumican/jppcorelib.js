@@ -1,12 +1,12 @@
 # jppcorelib.js
 
 ## Namespace
-`jpp.util.Namespace` provides the namespace system.
+`jpp.util.Namespace` provides the name  space system.
 `jpp.util.Namespace`は名前空間の仕組みを提供するクラス。
 
 
 ### Install
-`Namespace`クラスはデフォルトで`window`オブジェクトの`jpp.util`名前空間に登録されている。
+`Namespace`クラスはデフォルトで`window`オブジェクトの`jpp.util`名前空間に登録されている。  
 `jpp.util.Namespace`ではなく、`Namespace`のみでアクセスしたい場合は以下のコードを書く。
 
 ```javascript
@@ -17,7 +17,7 @@ jpp.util.Namespace('jpp.util').import('Namespace');
 基本的に`Namespace(‘名前空間’)`で任意の名前空間を指定し、そこに対するメソッドを呼び出すことで名前空間を直感的に操作できる。
 
 ##### Namespace(‘名前空間’).resister(‘オブジェクト名’, オブジェクト, 上書きフラグ)
-‘名前空間’に任意のオブジェクト(関数,クラス,数値,文字列などなんでも)を’オブジェクト名’として登録する。
+‘名前空間’に任意のオブジェクト(関数,クラス,数値,文字列などなんでも)を’オブジェクト名’として登録する。  
 ここで登録したオブジェクトには、後述の`use`もしくは`import`するまでアクセスすることはできない。
 
 ```javascript
@@ -27,7 +27,7 @@ Namespace('foo.bar').register('World', function World() { return 'World'; });
 ```
 
 ##### Namespace(‘名前空間’).use()
-‘名前空間’に属するオブジェクトをグローバルへインポートする。
+‘名前空間’に属するオブジェクトをグローバルへインポートする。  
 インポート後のオブジェクトには完全修飾名でアクセスできる。
 
 ```javascript
@@ -37,7 +37,7 @@ foo.bar.World();
 ```
 
 ##### Namespace(‘名前空間’).import(‘オブジェクト名’)
-‘オブジェクト名’を指定して’名前空間’に登録済みのオブジェクトをグローバルへインポートする。
+‘オブジェクト名’を指定して’名前空間’に登録済みのオブジェクトをグローバルへインポートする。  
 インポート後のオブジェクトにはオブジェクト名のみでアクセスできる。
 
 ```javascript
@@ -104,11 +104,11 @@ Namespace.enumerate();
 ```
 
 ## Command
-`jpp.command.*` provides the sequential command system.
+`jpp.command.*` provides the sequential command system.  
 `jpp.command.*`はProgressionライクなコマンドシステムを提供するクラス群。
 
 ### Install
-各種`Command`クラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.command`名前空間に登録されている。
+各種`Command`クラスはデフォルトで`jpp.util.Namespace`クラスの`jpp.command`名前空間に登録されている。  
 `jpp.command.クラス名`でアクセスしたい場合は以下のコードを書く。
 
 ```javascript
@@ -210,7 +210,7 @@ command.execute();
 
 
 ## EventDispatcher
-`jpp.event.*` provides the AS3 like event system.
+`jpp.event.*` provides the AS3 like event system.  
 `jpp.event.*`はAS3ライクなイベントシステムを提供するクラス群。
 
 ### Install
