@@ -105,7 +105,14 @@ Namespace.enumerate();
 `jpp.command.*` provides the namespace system.
 
 ### Install
-各種CommandクラスはデフォルトでNamespaceクラスのjpp.command名前空間に登録されている。
+各種Commandクラスはデフォルトでjpp.util.Namespaceクラスのjpp.command名前空間に登録されている。
+
+jpp.command.クラス名でアクセスしたい場合は以下のコードを書く。
+
+```javascript
+jpp.util.Namespace('jpp.command').use();
+```
+
 jpp.command.クラス名ではなく、クラス名のみでアクセスしたい場合は以下のコードを書く。
 
 ```javascript
@@ -197,4 +204,54 @@ var command = new SerialList(
 	)
 );
 command.execute();
+```
+
+
+## EventDispatcher
+`jpp.event.*` provides the AS3 like event system.
+
+### Install
+各種イベントクラスはデフォルトでjpp.util.Namespaceクラスのjpp.event名前空間に登録されている。
+
+jpp.event.クラス名でアクセスしたい場合は以下のコードを書く。
+
+```javascript
+jpp.util.Namespace('jpp.event').use();
+```
+
+jpp.event.クラス名ではなく、クラス名のみでアクセスしたい場合は以下のコードを書く。
+
+```javascript
+jpp.util.Namespace('jpp.event').import('*');
+```
+
+#### Example
+
+```javascript
+jpp.util.Namespace('jpp.event').import();
+
+function func1(event) { console.log(1, event.type, event.target, event.extra); }
+function func2(event) { console.log(2, event.type, event.target, event.extra); }
+function func3(event) { console.log(3, event.type, event.target, event.extra); }
+
+dispatcher = new EventDispatcher();
+
+dispatcher.addEventListener('A', func1);
+dispatcher.addEventListener('A', func1);
+dispatcher.addEventListener('A', func2);
+dispatcher.addEventListener('A', func3);
+dispatcher.removeEventListener('A', func2);
+dispatcher.dispatchEvent('A');
+
+console.log(dispatcher.hasEventListener('A'));
+console.log(dispatcher.hasEventListener('B'));
+
+dispatcher.addEventListener('A', func1);
+dispatcher.addEventListener('B', func1);
+dispatcher.dispatchEvent('A', 'ABCDE');
+dispatcher.dispatchEvent('B');
+
+dispatcher.removeAllEventListeners('A');
+dispatcher.dispatchEvent('A');
+dispatcher.dispatchEvent('B');
 ```

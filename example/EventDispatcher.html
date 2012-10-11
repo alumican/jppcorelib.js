@@ -7,9 +7,9 @@
 
 			jpp.util.Namespace('jpp.event').import();
 
-			function func1(e) { console.log(1, e.type, e.target, e.extra); }
-			function func2(e) { console.log(2, e.type, e.target, e.extra); }
-			function func3(e) { console.log(3, e.type, e.target, e.extra); }
+			function func1(event) { console.log(1, event.type, event.target, event.extra); }
+			function func2(event) { console.log(2, event.type, event.target, event.extra); }
+			function func3(event) { console.log(3, event.type, event.target, event.extra); }
 
 			dispatcher = new EventDispatcher();
 
