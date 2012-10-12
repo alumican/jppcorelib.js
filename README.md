@@ -1,6 +1,6 @@
 # jppcorelib.js
 The following packages are very alpha version.  
-このライブラリはまだほやほやなので、うまく動かない箇かも知れません。
+このライブラリはまだ作成途中なので、うまく動かない箇所があるかも知れません。
 
 ## Command
 `jpp.command.*` provides the sequential command system.  
