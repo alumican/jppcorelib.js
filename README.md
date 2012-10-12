@@ -1,5 +1,5 @@
 # jppcorelib.js
-The following packages are very alpha version.
+The following packages are very alpha version.  
 このライブラリはまだほやほやなので、うまく動かない箇かも知れません。
 
 ## Command
