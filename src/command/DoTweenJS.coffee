@@ -6,9 +6,9 @@ class DoTweenJS extends Command
 	###
 	Constructor
 	###
-	constructor: (tween) ->
+	constructor: (tweenProvider) ->
 		super()
-		@setTween(tween)
+		@_tweenProvider = tweenProvider
 
 
 	###
@@ -26,18 +26,16 @@ class DoTweenJS extends Command
 	Getter / Setter
 	###
 	getTween: () -> return @_tween
-	setTween: (tween) ->
-		@_tween = tween
-		@_tween.loop = false
-		@_tween.pause(@_tween)
-		@_tween.call(@_completeHandler)
-		@
+	setTween: (tween) -> @_tween = tween; @
 
 
 	###
 	Protected
 	###
 	_executeFunction: (command) ->
+		@_tween = @_tweenProvider()
+		@_tween.loop = false
+		@_tween.call(@_completeHandler)
 		@_tween.play(@_tween)
 
 	_interruptFunction: (command) ->

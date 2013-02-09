@@ -23,6 +23,8 @@
 				stage = new createjs.Stage(canvas);
 				stage.autoClear = true;
 
+				var message = document.getElementById("message");
+
 				var ball = new createjs.Shape();
 				ball.graphics.setStrokeStyle(5, 'round', 'round');
 				ball.graphics.beginStroke(('#000000'));
@@ -39,8 +41,15 @@
 				ball.y = -50;
 
 				var command = new SerialList(
-					new DoTweenJS(
-						createjs.Tween.get(ball)
+					function() {
+						message.innerHTML="Waiting for 3 seconds.";
+					},
+					new Wait(3),
+					function() {
+						message.innerHTML="This example shows TweenJS in action.";
+					},
+					new DoTweenJS(function() {
+						return createjs.Tween.get(ball)
 							.to({x:ball.x, y:canvas.height - 55, rotation:-360}, 1500, createjs.Ease.bounceOut)
 							.wait(1000)
 							.to({x:canvas.width-55, rotation:360}, 2500, createjs.Ease.bounceOut)
@@ -48,9 +57,9 @@
 							.to({scaleX:2, scaleY:2, x:canvas.width - 110, y:canvas.height-110}, 2500, createjs.Ease.bounceOut)
 							.wait(1000)
 							.to({scaleX:.5, scaleY:.5, x:30, rotation:-360, y:canvas.height-30}, 2500, createjs.Ease.bounceOut)
-					),
+					}),
 					function() {
-						console.log("complete");
+						message.innerHTML="Complete";
 					}
 				);
 
@@ -70,7 +79,7 @@
 		<div class="canvasHolder">
 			<header id="header" class="EaselJS">
 				<h1><span class="text-product">Jppcorelib x TweenJS</span><br />Simple Tween Demo</h1>
-				<p>This example shows TweenJS in action.</p>
+				<p id="message"></p>
 			</header>
 			<canvas id="testCanvas" width="960" height="400"></canvas>
 		</div>
