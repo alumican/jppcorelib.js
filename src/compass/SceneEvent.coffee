@@ -6,7 +6,7 @@
  http://www.opensource.org/licenses/mit-license.php
 ###
 
-class CompassEvent extends Event
+class SceneEvent extends Event
 
 	#===============================================
 	#
@@ -14,12 +14,8 @@ class CompassEvent extends Event
 	#
 	#===============================================
 
-	#最初のシーンが認識されたときに発行される
-	@INIT: 'init'
-
-	#シーンが切り替わったときに発行される
-	@CHANGE: 'change'
+	@CHANGE_STATUS: 'chanegStatus'
 
 
 #export
-Namespace('jpp.compass').register('CompassEvent', CompassEvent)
+Namespace('jpp.compass').register('SceneEvent', SceneEvent)

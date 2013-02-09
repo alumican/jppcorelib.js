@@ -12,6 +12,7 @@ class Command extends EventDispatcher
 		@setInterruptFunction(interruptFunction);
 		@setDestroyFunction(destroyFunction);
 		@_state = CommandState.SLEEPING
+		@_self = this
 		@_parent = null
 
 
@@ -68,6 +69,8 @@ class Command extends EventDispatcher
 	setDestroyFunction: (f) -> @__destroyFunction = f; @
 
 	getState: () -> return @_state
+
+	getSelf: () -> return @_self
 
 	getParent: () -> return @_parent
 	setParent: (parent) -> @_parent = parent

@@ -23,17 +23,17 @@ jpp.util.Namespace('jpp.command').import('*');
 #### Command Class
 各種コマンドクラス
 
-`Break`
-`Func`
-`JqueryAjax`
-`JqueryGet`
-`JqueryPost`
-`Listen`
-`ParallelList`
-`Return`
-`SerialList`
-`Tween`
-`Wait`
+`Func` 関数を実行する。  
+`Wait` 指定時間コマンドを停止する。  
+`Listen` 指定したイベントが発行されるまで停止する。  
+`SerialList` 複数のコマンドを順番に実行する。  
+`ParallelList` 複数のコマンドを並列で実行する。  
+`Tween` 変数の値をアニメーションさせる。  
+`DoTweenJS` TweenJSのアニメーションを実行する。  
+`Break` 実行中のコマンドリスト(`SerialList`, `ParallelList`)を中断し、親のコマンドは中断しない。  
+`Return` 実行中のコマンドリストを中断する。親のコマンドリストも中断する。  
+
+`Func`コマンドは普通のJavaScript関数(function)で代用可能。  
 
 #### Example
 
@@ -48,19 +48,19 @@ var value1 = 100;
 var self = this;
 
 var command = new SerialList(
-	new Func(function() {
+	function() {
 		trace("Start");
-	}),
+	},
 	new Wait(0.5),
-	new Func(function() {
+	function() {
 		trace("Wait Complete");
-	}),
+	},
 	new JqueryGet('sample.xml', null, function(data) {
 		trace(data);
 	}),
-	new Func(function() {
+	function() {
 		trace("Load Complete");
-	}),
+	},
 
 	new Tween(self, { value0 : 100, value1 : 0 }, { value0 : 0 }, 3, Easing.easeOutExpo,
 		function() {

@@ -10,6 +10,8 @@ class SerialList extends CommandList
 		super(commands...)
 		@_currentCommand = null
 		@_position = 0
+		@_isPaused = false
+		@_isCompleteOnPaused = false
 
 
 	###
@@ -23,6 +25,18 @@ class SerialList extends CommandList
 		super(@_position + 1, commands...)
 		@
 
+	#pause: (withChildren = false) ->
+	#	return if @_isPaused
+	#	@_isPaused = true
+	#	@_currentCommand.pause(true) if withChildren and @_currentCommand instanceof SerialList
+
+	#resume: () ->
+	#	return if not @_isPaused
+	#	@_isPaused = false
+	#	if @_isCompleteOnPaused
+	#		@_isCompleteOnPaused = false
+	#		@_updatePosition()
+
 	_next: () ->
 		@_currentCommand = @getCommandByIndex(@_position)
 		@_currentCommand.addEventListener(Event.COMPLETE, @_completeHandler)
@@ -31,7 +45,14 @@ class SerialList extends CommandList
 	_completeHandler: (event) =>
 		@_currentCommand.removeEventListener(Event.COMPLETE, @_completeHandler)
 		@_currentCommand = null
-		if ++@_position >= @getLength() then @notifyComplete() else @_next()
+		#if @_isPaused
+		#	@_isCompleteOnPaused = true
+		#else
+		#	@_updatePosition()
+		if ++@_position >= @getLength() then @notifyComplete() else @_next() #pause実装したら消す
+
+	#_updatePosition: () ->
+	#	if ++@_position >= @getLength() then @notifyComplete() else @_next()
 
 	notifyBreak: () ->
 		if @_currentCommand?.getState() == CommandState.EXECUTING
@@ -51,6 +72,7 @@ class SerialList extends CommandList
 	Getter / Setter
 	###
 	getPosition: () -> return @_position
+	#getIsPaused: () -> return @_isPaused
 
 
 	###
@@ -74,6 +96,8 @@ class SerialList extends CommandList
 			@_currentCommand.destroy()
 		@_currentCommand = null
 		@_position = 0
+		@_isPaused = false
+		@_isCompleteOnPaused = false
 		super(command)
 
 

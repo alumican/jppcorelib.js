@@ -25,6 +25,9 @@ define = () ->
 		'compass/CompassEvent'
 		'compass/CompassUtil'
 		'compass/Scene'
+		'compass/ScenePhase'
+		'compass/SceneEvent'
+		'compass/SceneFactory'
 	], './src', './lib')
 
 	setTask('main', ['main'], './example/compass/coffee', './example/compass/script')
@@ -75,7 +78,7 @@ minify = (id, outputdir) ->
 
 next = (q, name, file, f = null) ->
 	q.then(
-		() -> 
+		() ->
 			log "#{name} succeeded -> #{file}"
 			f.call(null) if f?
 		() ->

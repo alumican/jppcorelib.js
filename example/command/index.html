@@ -3,6 +3,7 @@
 	<head>
 		<script type="text/javascript" src="../../lib/jppcorelib.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
+
 		<script type="text/javascript">
 			function trace(message) { console.log(message); }
 
@@ -24,9 +25,9 @@
 				new JqueryGet('sample.xml', null, function(data) {
 					trace(data);
 				}),
-				new Func(function() {
-					trace("Load Complete");
-				}),
+				function() {
+					trace("Load Complete (js function)");
+				},
 
 				new Tween(self, { value0 : 100, value1 : 0 }, { value0 : 0 }, 1, Easing.easeOutExpo,
 					function() {
@@ -45,7 +46,7 @@
 					new Func(function() {
 						this.getParent().addCommand(
 							new Wait(0.2),
-							new Func(function() { trace("H"); })
+							function() { trace("H (js function)"); }
 						);
 					}),
 					new ParallelList(
@@ -76,6 +77,10 @@
 			);
 			command.execute();
 
+			//$(document).on("click", function(e) {
+			//	command.getIsPaused() ? command.resume() : command.pause(true);
+			//	trace("is paused : " + command.getIsPaused());
+			//})
 		</script>
 	</head>
 	<body>
