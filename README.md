@@ -30,7 +30,7 @@ jpp.util.Namespace('jpp.command').import('*');
 `ParallelList` 複数のコマンドを並列で実行する。  
 `Tween` 変数の値をアニメーションさせる。  
 `DoTweenJS` TweenJSのアニメーションを実行する。  
-`Break` 実行中のコマンドリスト(`SerialList`, `ParallelList`)を中断し、親のコマンドは中断しない。  
+`Break` 実行中のコマンドリスト(`SerialList`, `ParallelList`)を中断する。親のコマンドは中断しない。  
 `Return` 実行中のコマンドリストを中断する。親のコマンドリストも中断する。  
 
 `Func`コマンドは普通のJavaScript関数(function)で代用可能。  
