@@ -1,3 +1,7 @@
-/draft/*
 /.idea/*
+/draft/*
+/node_modules/*
+/tmp/*
 *.bat
+*.DS_Store
+jppcorelib.sublime-*
