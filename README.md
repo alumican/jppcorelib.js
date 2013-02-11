@@ -30,8 +30,13 @@ jpp.util.Namespace('jpp.command').import('*');
 `Parallel` 複数のコマンドを並列で実行する。  
 `Tween` 変数の値をアニメーションさせる。  
 `DoTweenJS` TweenJSのアニメーションを実行する。  
+`JqueryAnimate` jQuery.animateを実行する。  
+`JqueryAjax` jQuery.ajaxを実行する。  
+`JqueryGet` jQuery.getを実行する。  
+`JqueryPost` jQuery.postを実行する。  
 `Break` 実行中のコマンドリスト(`Serial`, `Parallel`)を中断する。親のコマンドは中断しない。  
 `Return` 実行中のコマンドリストを中断する。親のコマンドリストも中断する。  
+`Trace` 文字列をコンソールに出力する。  
 
 `Func`コマンドは普通のJavaScript関数(function)で代用可能。  
 
