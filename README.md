@@ -26,11 +26,11 @@ jpp.util.Namespace('jpp.command').import('*');
 `Func` 関数を実行する。  
 `Wait` 指定時間コマンドを停止する。  
 `Listen` 指定したイベントが発行されるまで停止する。  
-`SerialList` 複数のコマンドを順番に実行する。  
-`ParallelList` 複数のコマンドを並列で実行する。  
+`Serial` 複数のコマンドを順番に実行する。  
+`Parallel` 複数のコマンドを並列で実行する。  
 `Tween` 変数の値をアニメーションさせる。  
 `DoTweenJS` TweenJSのアニメーションを実行する。  
-`Break` 実行中のコマンドリスト(`SerialList`, `ParallelList`)を中断する。親のコマンドは中断しない。  
+`Break` 実行中のコマンドリスト(`Serial`, `Parallel`)を中断する。親のコマンドは中断しない。  
 `Return` 実行中のコマンドリストを中断する。親のコマンドリストも中断する。  
 
 `Func`コマンドは普通のJavaScript関数(function)で代用可能。  
@@ -47,7 +47,7 @@ var value0;
 var value1 = 100;
 var self = this;
 
-var command = new SerialList(
+var command = new Serial(
 	function() {
 		trace("Start");
 	},
@@ -74,7 +74,7 @@ var command = new SerialList(
 		}
 	),
 
-	new SerialList(
+	new Serial(
 		new Func(function() { trace("A"); }),
 		new Func(function() {
 			this.getParent().addCommand(
@@ -82,14 +82,14 @@ var command = new SerialList(
 				new Func(function() { trace("H"); })
 			);
 		}),
-		new ParallelList(
-			new SerialList(
+		new Parallel(
+			new Serial(
 				new Wait(1),
 				new Func(function() { trace("C"); })
 				new Break(),
 				new Func(function() { trace("Never"); })
 			),
-			new SerialList(
+			new Serial(
 				new Wait(0.5),
 				new Func(function() {
 					trace("B");
@@ -100,7 +100,7 @@ var command = new SerialList(
 				}),
 				new Func(function() { trace("F"); })
 			),
-			new SerialList(
+			new Serial(
 				new Wait(1.5),
 				new Func(function() { trace("D"); })
 			)

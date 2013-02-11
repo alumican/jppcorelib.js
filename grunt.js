@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     concat: {
       jppcorelib: {
-        src: ['src/util/Namespace.coffee', 'src/util/Err.coffee', 'src/util/Num.coffee', 'src/util/Arr.coffee', 'src/util/Easing.coffee', 'src/event/Event.coffee', 'src/event/EventDispatcher.coffee', 'src/command/CommandState.coffee', 'src/command/Command.coffee', 'src/command/CommandList.coffee', 'src/command/SerialList.coffee', 'src/command/ParallelList.coffee', 'src/command/Break.coffee', 'src/command/Return.coffee', 'src/command/Func.coffee', 'src/command/Trace.coffee', 'src/command/Wait.coffee', 'src/command/Listen.coffee', 'src/command/Tween.coffee', 'src/command/JqueryAjax.coffee', 'src/command/JqueryGet.coffee', 'src/command/JqueryPost.coffee', 'src/command/DoTweenJS.coffee', 'src/compass/Compass.coffee', 'src/compass/CompassEvent.coffee', 'src/compass/CompassUtil.coffee', 'src/compass/Scene.coffee', 'src/compass/SceneStatus.coffee', 'src/compass/SceneEvent.coffee', 'src/compass/SceneFactory.coffee'],
+        src: ['src/util/Namespace.coffee', 'src/util/Err.coffee', 'src/util/Num.coffee', 'src/util/Arr.coffee', 'src/util/Obj.coffee', 'src/util/Easing.coffee', 'src/event/Event.coffee', 'src/event/EventDispatcher.coffee', 'src/command/CommandState.coffee', 'src/command/Command.coffee', 'src/command/CommandList.coffee', 'src/command/Serial.coffee', 'src/command/Parallel.coffee', 'src/command/Break.coffee', 'src/command/Return.coffee', 'src/command/Func.coffee', 'src/command/Trace.coffee', 'src/command/Wait.coffee', 'src/command/Listen.coffee', 'src/command/Tween.coffee', 'src/command/JqueryAjax.coffee', 'src/command/JqueryGet.coffee', 'src/command/JqueryPost.coffee', 'src/command/JqueryAnimate.coffee', 'src/command/DoTweenJS.coffee', 'src/milkpack/Milkpack.coffee', 'src/milkpack/MilkpackEvent.coffee', 'src/milkpack/Scene.coffee', 'src/milkpack/SceneEvent.coffee', 'src/milkpack/SceneStatus.coffee', 'src/milkpack/Util.coffee'],
         dest: 'tmp/jppcorelib-concat.coffee'
       }
     },
@@ -16,12 +16,12 @@ module.exports = function(grunt) {
       },
       example: {
         files: {
-          'example/compass/script/main.js': 'example/compass/coffee/main.coffee'
+          'example/milkpack/script/main.js': 'example/milkpack/coffee/main.coffee'
         }
       },
       kazitori: {
         files: {
-          'example/compass/script/kazitori.js': 'example/compass/coffee/kazitori.coffee'
+          'example/milkpack/script/kazitori.js': 'example/milkpack/coffee/kazitori.coffee'
         },
         options: {
           bare: true
@@ -36,17 +36,17 @@ module.exports = function(grunt) {
     },
     less: {
       example: {
-        src: 'example/compass/less/main.less',
-        dest: 'example/compass/style/main.css'
+        src: 'example/milkpack/less/main.less',
+        dest: 'example/milkpack/style/main.css'
       }
     },
     watch: {
       script: {
-        files: ['src/**/*.coffee', 'example/compass/coffee/*.coffee'],
+        files: ['src/**/*.coffee', 'example/milkpack/coffee/*.coffee'],
         tasks: 'default'
       },
       style: {
-        files: 'example/compass/less/*.less',
+        files: 'example/milkpack/less/*.less',
         tasks: 'default'
       }
     }

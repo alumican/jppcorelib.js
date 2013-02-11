@@ -16,13 +16,15 @@ class CommandList extends Command
 	Method
 	###
 	addCommand: (commands...) ->
-		@_setParent(commands)
-		@_commands = @getCommands().concat(commands)
+		if commands.length > 0
+			@_setParent(commands)
+			@_commands = @getCommands().concat(commands)
 		@
 
 	insertCommand: (index, commands...) ->
-		@_setParent(commands)
-		Array.prototype.splice.apply(@getCommands(), [index, 0].concat(commands))
+		if commands.length > 0
+			@_setParent(commands)
+			Array.prototype.splice.apply(@getCommands(), [index, 0].concat(commands))
 		@
 
 	addCommandArray: (commands) ->

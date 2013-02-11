@@ -25,6 +25,9 @@ class Arr
 			array[t] = tmp
 		return array
 
+	Arr.clone = (array) ->
+		return array.concat()
+
 
 #export
 Namespace('jpp.util').register('Arr', Arr)

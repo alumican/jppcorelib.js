@@ -14,7 +14,7 @@
 			var value1 = 100;
 			var self = this;
 
-			var command = new SerialList(
+			var command = new Serial(
 				new Func(function() {
 					trace("Start");
 				}),
@@ -41,7 +41,7 @@
 					}
 				),
 
-				new SerialList(
+				new Serial(
 					new Func(function() { trace("A"); }),
 					new Func(function() {
 						this.getParent().addCommand(
@@ -49,14 +49,14 @@
 							function() { trace("H (js function)"); }
 						);
 					}),
-					new ParallelList(
-						new SerialList(
+					new Parallel(
+						new Serial(
 							new Wait(1),
 							new Func(function() { trace("C"); }),
 							new Break(),
 							new Func(function() { trace("Never"); })
 						),
-						new SerialList(
+						new Serial(
 							new Wait(0.5),
 							new Func(function() {
 								trace("B");
@@ -67,7 +67,7 @@
 							}),
 							new Func(function() { trace("F"); })
 						),
-						new SerialList(
+						new Serial(
 							new Wait(1.5),
 							new Func(function() { trace("D"); })
 						)

@@ -11,14 +11,15 @@ module.exports = (grunt) ->
 					'src/util/Err.coffee'
 					'src/util/Num.coffee'
 					'src/util/Arr.coffee'
+					'src/util/Obj.coffee'
 					'src/util/Easing.coffee'
 					'src/event/Event.coffee'
 					'src/event/EventDispatcher.coffee'
 					'src/command/CommandState.coffee'
 					'src/command/Command.coffee'
 					'src/command/CommandList.coffee'
-					'src/command/SerialList.coffee'
-					'src/command/ParallelList.coffee'
+					'src/command/Serial.coffee'
+					'src/command/Parallel.coffee'
 					'src/command/Break.coffee'
 					'src/command/Return.coffee'
 					'src/command/Func.coffee'
@@ -29,14 +30,14 @@ module.exports = (grunt) ->
 					'src/command/JqueryAjax.coffee'
 					'src/command/JqueryGet.coffee'
 					'src/command/JqueryPost.coffee'
+					'src/command/JqueryAnimate.coffee'
 					'src/command/DoTweenJS.coffee'
-					'src/compass/Compass.coffee'
-					'src/compass/CompassEvent.coffee'
-					'src/compass/CompassUtil.coffee'
-					'src/compass/Scene.coffee'
-					'src/compass/SceneStatus.coffee'
-					'src/compass/SceneEvent.coffee'
-					'src/compass/SceneFactory.coffee'
+					'src/milkpack/Milkpack.coffee'
+					'src/milkpack/MilkpackEvent.coffee'
+					'src/milkpack/Scene.coffee'
+					'src/milkpack/SceneEvent.coffee'
+					'src/milkpack/SceneStatus.coffee'
+					'src/milkpack/Util.coffee'
 				]
 				dest: 'tmp/jppcorelib-concat.coffee'
 
@@ -46,10 +47,10 @@ module.exports = (grunt) ->
 					'lib/jppcorelib.js': 'tmp/jppcorelib-concat.coffee'
 			example:
 				files:
-					'example/compass/script/main.js': 'example/compass/coffee/main.coffee'
+					'example/milkpack/script/main.js': 'example/milkpack/coffee/main.coffee'
 			kazitori:
 				files:
-					'example/compass/script/kazitori.js': 'example/compass/coffee/kazitori.coffee'
+					'example/milkpack/script/kazitori.js': 'example/milkpack/coffee/kazitori.coffee'
 				options:
 					bare: true
 
@@ -66,9 +67,9 @@ module.exports = (grunt) ->
 		less:
 			example:
 				src:
-					'example/compass/less/main.less'
+					'example/milkpack/less/main.less'
 				dest:
-					'example/compass/style/main.css'
+					'example/milkpack/style/main.css'
 
 		#========================================
 		# WATCH
@@ -77,19 +78,19 @@ module.exports = (grunt) ->
 			script:
 				files: [
 					'src/**/*.coffee'
-					'example/compass/coffee/*.coffee'
+					'example/milkpack/coffee/*.coffee'
 				]
 				tasks:
 					#['default', 'r']
 					'default'
 			style:
 				files:
-					'example/compass/less/*.less'
+					'example/milkpack/less/*.less'
 				tasks:
 					#['default', 'r']
 					'default'
 			#html:
-			#	files: 'example/compass/index.html'
+			#	files: 'example/milkpack/index.html'
 			#	tasks: 'r'
 
 	#========================================
@@ -100,7 +101,7 @@ module.exports = (grunt) ->
 	#========================================
 	# TASK
 	#========================================
-	#url = 'http://jppcorelib.local/example/compass/'
+	#url = 'http://jppcorelib.local/example/milkpack/'
 	#script = '''
 	#	tell application "Google Chrome"
 	#		set theURL to URL of active tab of window 1
