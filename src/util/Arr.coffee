@@ -30,4 +30,4 @@ class Arr
 
 
 #export
-Namespace('jpp.util').register('Arr', Arr)
+Namespace('jpp.util').register('Arr', Arr).use()
