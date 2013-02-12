@@ -48,14 +48,6 @@ class PageScene extends Scene
 			new JqueryAnimate(@$page, { opacity : '1' }, { duration : 500, easing : 'linear' })
 		)
 
-	_onArrive: () =>
-		@addCommand(
-		)
-
-	_onLeave: () =>
-		@addCommand(
-		)
-
 	_onBye: () =>
 		@addCommand(
 			new JqueryAnimate(@$page, { opacity : '0' }, { duration : 500, easing : 'linear' })
@@ -66,33 +58,12 @@ class AboutScene extends PageScene
 
 	_onInit: () =>
 		super($('#page_what'))
-
-	_onHello: () =>
-		super()
-
-	_onArrive: () =>
-
-	_onLeave: () =>
 		
-	_onBye: () =>
-		super()
-		
-
 
 class UsageScene extends PageScene
 
 	_onInit: () =>
 		super($('#page_how'))
-
-	_onHello: () =>
-		super()
-
-	_onArrive: () =>
-
-	_onLeave: () =>
-		
-	_onBye: () =>
-		super()
 
 
 class DownloadScene extends PageScene
@@ -100,31 +71,11 @@ class DownloadScene extends PageScene
 	_onInit: (id) =>
 		super($('#page_where'))
 
-	_onHello: () =>
-		super()
-
-	_onArrive: () =>
-
-	_onLeave: () =>
-		
-	_onBye: () =>
-		super()
-
 
 class ContactScene extends PageScene
 
 	_onInit: () =>
 		super($('#page_who'))
-
-	_onHello: () =>
-		super()
-
-	_onArrive: () =>
-
-	_onLeave: () =>
-		
-	_onBye: () =>
-		super()
 
 
 #===============================================
