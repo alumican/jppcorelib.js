@@ -7,7 +7,6 @@ require = (params...) ->
 			command.addCommand(c)
 		else
 			command.addCommand(param)
-	console.log command.getLength()
 	command.execute()
 
 
