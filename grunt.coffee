@@ -8,6 +8,7 @@ module.exports = (grunt) ->
 			jppcorelib:
 				src: [
 					'src/util/Namespace.coffee'
+					'src/util/Scope.coffee'
 					'src/util/Err.coffee'
 					'src/util/Num.coffee'
 					'src/util/Arr.coffee'
