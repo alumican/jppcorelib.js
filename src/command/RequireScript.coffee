@@ -19,12 +19,10 @@ class RequireScript extends Command
 	_completeHandler: (event) =>
 		return if @_status != 1
 
-		if @_script.readyState is 'loaded' or @_script.readyState is 'complete'
+		if not @_script.readyState or @_script.readyState is 'loaded' or @_script.readyState is 'complete'
 			@_status = 2
 			@_script.onload = @_script.onreadystatechange = null;
 			@_script.parentNode.removeChild(@_script);
-			console.log @_url
-		
 			@notifyComplete()
 
 	_cancel: () ->
