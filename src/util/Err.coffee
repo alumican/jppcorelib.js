@@ -7,4 +7,4 @@ class Err
 
 
 #export
-Namespace('jpp.util').register('Err', Err).use()
+Namespace('jpp.util').register('Err', Err)

@@ -184,4 +184,4 @@ class Easing
 
 
 #export
-Namespace('jpp.util').register('Easing', Easing).use()
+Namespace('jpp.util').register('Easing', Easing)

@@ -60,4 +60,4 @@ class Num
 		return Math.random() * (max - min) + min
 
 #export
-Namespace('jpp.util').register('Num', Num).use()
+Namespace('jpp.util').register('Num', Num)

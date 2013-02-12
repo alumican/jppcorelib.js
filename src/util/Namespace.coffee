@@ -128,4 +128,4 @@ class _NamespaceObject
 
 
 #export myself
-Namespace('jpp.util').register('Namespace', Namespace).use()
+Namespace('jpp.util').register('Namespace', Namespace)

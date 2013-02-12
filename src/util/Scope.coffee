@@ -14,3 +14,7 @@ class Scope
 	#一時thisスコープで関数を実行する
 	@temp: (f) ->
 		f.call({})
+
+
+#export
+Namespace('jpp.util').register('Scope', Scope)
