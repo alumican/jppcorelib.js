@@ -23,6 +23,8 @@ class RequireScript extends Command
 			@_status = 2
 			@_script.onload = @_script.onreadystatechange = null;
 			@_script.parentNode.removeChild(@_script);
+			console.log @_url
+		
 			@notifyComplete()
 
 	_cancel: () ->
@@ -45,8 +47,6 @@ class RequireScript extends Command
 	_executeFunction: (command) ->
 		@_status = 1
 
-		console.log @_url
-		
 		@_script = document.createElement('script');
 		@_script.src = @_url
 		@_script.type = 'text/javascript'
