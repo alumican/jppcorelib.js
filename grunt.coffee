@@ -32,12 +32,6 @@ module.exports = (grunt) ->
 					'src/command/JqueryPost.coffee'
 					'src/command/JqueryAnimate.coffee'
 					'src/command/DoTweenJS.coffee'
-					'src/milkpack/Milkpack.coffee'
-					'src/milkpack/MilkpackEvent.coffee'
-					'src/milkpack/Scene.coffee'
-					'src/milkpack/SceneEvent.coffee'
-					'src/milkpack/SceneStatus.coffee'
-					'src/milkpack/Util.coffee'
 				]
 				dest: 'tmp/jppcorelib-concat.coffee'
 
@@ -45,14 +39,6 @@ module.exports = (grunt) ->
 			jppcorelib:
 				files:
 					'lib/jppcorelib.js': 'tmp/jppcorelib-concat.coffee'
-			example:
-				files:
-					'example/milkpack/script/main.js': 'example/milkpack/coffee/main.coffee'
-			kazitori:
-				files:
-					'example/milkpack/script/kazitori.js': 'example/milkpack/coffee/kazitori.coffee'
-				options:
-					bare: true
 
 		min:
 			jppcorelib:
@@ -64,34 +50,13 @@ module.exports = (grunt) ->
 		#========================================
 		# WATCH
 		#========================================
-		less:
-			example:
-				src:
-					'example/milkpack/less/main.less'
-				dest:
-					'example/milkpack/style/main.css'
-
-		#========================================
-		# WATCH
-		#========================================
 		watch:
 			script:
 				files: [
 					'src/**/*.coffee'
-					'example/milkpack/coffee/*.coffee'
 				]
 				tasks:
-					#['default', 'r']
 					'default'
-			style:
-				files:
-					'example/milkpack/less/*.less'
-				tasks:
-					#['default', 'r']
-					'default'
-			#html:
-			#	files: 'example/milkpack/index.html'
-			#	tasks: 'r'
 
 	#========================================
 	# PLUGIN
@@ -101,18 +66,6 @@ module.exports = (grunt) ->
 	#========================================
 	# TASK
 	#========================================
-	#url = 'http://jppcorelib.local/example/milkpack/'
-	#script = '''
-	#	tell application "Google Chrome"
-	#		set theURL to URL of active tab of window 1
-	#		if theURL = "''' + url + '''"
-	#			tell the active tab of its first window
-	#				reload
-	#			end tell
-	#		end if
-	#	end tell
-	#'''
-	#grunt.registerTask 'r', 'reload Google Chrome (OS X)', () -> require('child_process').exec('osascript -e \'' + script + '\'')
-	grunt.registerTask 'default', 'concat coffee min less'
+	grunt.registerTask 'default', 'concat coffee min'
 	grunt.registerTask "r", "reload Google Chrome (OS X)", () -> require("child_process").exec 'osascript -e \'tell application \"Google Chrome\" to tell the active tab of its first window to reload\''
 	grunt.registerTask 'w', 'watch'

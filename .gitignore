@@ -4,4 +4,5 @@
 /tmp/
 *.bat
 .DS_Store
+._*
 jppcorelib.sublime*

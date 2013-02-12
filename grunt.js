@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     concat: {
       jppcorelib: {
-        src: ['src/util/Namespace.coffee', 'src/util/Err.coffee', 'src/util/Num.coffee', 'src/util/Arr.coffee', 'src/util/Obj.coffee', 'src/util/Easing.coffee', 'src/event/Event.coffee', 'src/event/EventDispatcher.coffee', 'src/command/CommandState.coffee', 'src/command/Command.coffee', 'src/command/CommandList.coffee', 'src/command/Serial.coffee', 'src/command/Parallel.coffee', 'src/command/Break.coffee', 'src/command/Return.coffee', 'src/command/Func.coffee', 'src/command/Trace.coffee', 'src/command/Wait.coffee', 'src/command/Listen.coffee', 'src/command/Tween.coffee', 'src/command/JqueryAjax.coffee', 'src/command/JqueryGet.coffee', 'src/command/JqueryPost.coffee', 'src/command/JqueryAnimate.coffee', 'src/command/DoTweenJS.coffee', 'src/milkpack/Milkpack.coffee', 'src/milkpack/MilkpackEvent.coffee', 'src/milkpack/Scene.coffee', 'src/milkpack/SceneEvent.coffee', 'src/milkpack/SceneStatus.coffee', 'src/milkpack/Util.coffee'],
+        src: ['src/util/Namespace.coffee', 'src/util/Err.coffee', 'src/util/Num.coffee', 'src/util/Arr.coffee', 'src/util/Obj.coffee', 'src/util/Easing.coffee', 'src/event/Event.coffee', 'src/event/EventDispatcher.coffee', 'src/command/CommandState.coffee', 'src/command/Command.coffee', 'src/command/CommandList.coffee', 'src/command/Serial.coffee', 'src/command/Parallel.coffee', 'src/command/Break.coffee', 'src/command/Return.coffee', 'src/command/Func.coffee', 'src/command/Trace.coffee', 'src/command/Wait.coffee', 'src/command/Listen.coffee', 'src/command/Tween.coffee', 'src/command/JqueryAjax.coffee', 'src/command/JqueryGet.coffee', 'src/command/JqueryPost.coffee', 'src/command/JqueryAnimate.coffee', 'src/command/DoTweenJS.coffee'],
         dest: 'tmp/jppcorelib-concat.coffee'
       }
     },
@@ -12,19 +12,6 @@ module.exports = function(grunt) {
       jppcorelib: {
         files: {
           'lib/jppcorelib.js': 'tmp/jppcorelib-concat.coffee'
-        }
-      },
-      example: {
-        files: {
-          'example/milkpack/script/main.js': 'example/milkpack/coffee/main.coffee'
-        }
-      },
-      kazitori: {
-        files: {
-          'example/milkpack/script/kazitori.js': 'example/milkpack/coffee/kazitori.coffee'
-        },
-        options: {
-          bare: true
         }
       }
     },
@@ -34,25 +21,15 @@ module.exports = function(grunt) {
         dest: 'lib/jppcorelib.min.js'
       }
     },
-    less: {
-      example: {
-        src: 'example/milkpack/less/main.less',
-        dest: 'example/milkpack/style/main.css'
-      }
-    },
     watch: {
       script: {
-        files: ['src/**/*.coffee', 'example/milkpack/coffee/*.coffee'],
-        tasks: 'default'
-      },
-      style: {
-        files: 'example/milkpack/less/*.less',
+        files: ['src/**/*.coffee'],
         tasks: 'default'
       }
     }
   });
   grunt.loadNpmTasks('grunt-contrib');
-  grunt.registerTask('default', 'concat coffee min less');
+  grunt.registerTask('default', 'concat coffee min');
   grunt.registerTask("r", "reload Google Chrome (OS X)", function() {
     return require("child_process").exec('osascript -e \'tell application \"Google Chrome\" to tell the active tab of its first window to reload\'');
   });
