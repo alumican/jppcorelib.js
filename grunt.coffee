@@ -13,8 +13,12 @@ module.exports = (grunt) ->
 					'src/util/Arr.coffee'
 					'src/util/Obj.coffee'
 					'src/util/Easing.coffee'
+					'src/util/require.coffee'
+					'src/util/trace.coffee'
+
 					'src/event/Event.coffee'
 					'src/event/EventDispatcher.coffee'
+
 					'src/command/CommandState.coffee'
 					'src/command/Command.coffee'
 					'src/command/CommandList.coffee'
@@ -32,6 +36,7 @@ module.exports = (grunt) ->
 					'src/command/JqueryPost.coffee'
 					'src/command/JqueryAnimate.coffee'
 					'src/command/DoTweenJS.coffee'
+					'src/command/RequireScript.coffee'
 				]
 				dest: 'tmp/jppcorelib-concat.coffee'
 
