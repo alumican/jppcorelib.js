@@ -2,12 +2,12 @@
 require = (params...) ->
 	command = new Serial()
 	for param in params
-		console.log param
 		if typeof param is 'string'
 			c = new RequireScript(param)
 			command.addCommand(c)
 		else
 			command.addCommand(param)
+	console.log command.getLength()
 	command.execute()
 
 
