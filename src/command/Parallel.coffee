@@ -51,10 +51,13 @@ class Parallel extends CommandList
 	Protected
 	###
 	_executeFunction: (command) ->
-		@_completeCount = 0
-		for c in @getCommands()
-			c.addEventListener(Event.COMPLETE, @_completeHandler)
-			c.execute()
+		if @getLength() > 0
+			@_completeCount = 0
+			for c in @getCommands()
+				c.addEventListener(Event.COMPLETE, @_completeHandler)
+				c.execute()
+		else
+			@notifyComplete()
 
 
 	_interruptFunction: (command) ->
