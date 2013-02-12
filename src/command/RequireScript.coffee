@@ -17,7 +17,6 @@ class RequireScript extends Command
 	Method
 	###
 	_completeHandler: (event) =>
-		console.log @_url, @_status
 		return if @_status != 1
 
 		if @_script.readyState is 'loaded' or @_script.readyState is 'complete'
@@ -46,6 +45,8 @@ class RequireScript extends Command
 	_executeFunction: (command) ->
 		@_status = 1
 
+		console.log @_url
+		
 		@_script = document.createElement('script');
 		@_script.src = @_url
 		@_script.type = 'text/javascript'
