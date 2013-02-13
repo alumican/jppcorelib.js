@@ -4,4 +4,4 @@ trace = (messages...) ->
 
 
 #export
-Namespace('jpp.util').register('trace', trace)
+Namespace('jpp.util').register('trace', trace).use()

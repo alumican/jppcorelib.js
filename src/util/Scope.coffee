@@ -17,4 +17,4 @@ class Scope
 
 
 #export
-Namespace('jpp.util').register('Scope', Scope)
+Namespace('jpp.util').register('Scope', Scope).use()

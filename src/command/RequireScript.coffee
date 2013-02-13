@@ -51,7 +51,9 @@ class RequireScript extends Command
 		@_script.language = 'javascript'
 		@_script.onload = @_completeHandler
 		@_script.onreadystatechange = @_completeHandler
-		document.body.appendChild(@_script);
+		#container = document.body
+		container = document.getElementsByTagName('head')[0]
+		container.appendChild(@_script);
 
 	_interruptFunction: (command) ->
 		@_cancel()

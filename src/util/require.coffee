@@ -11,4 +11,4 @@ require = (params...) ->
 
 
 #export
-Namespace('jpp.util').register('require', require)
+Namespace('jpp.util').register('require', require).use()

@@ -11,4 +11,4 @@ class Obj
 
 
 #export
-Namespace('jpp.util').register('Obj', Obj)
+Namespace('jpp.util').register('Obj', Obj).use()
