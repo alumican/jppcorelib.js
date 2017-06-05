@@ -1,4 +1,4 @@
-/// <reference path="jquery.d.ts" />
+/// <reference path="../../jquery/jquery.d.ts" />
 
 declare module JPP
 {
