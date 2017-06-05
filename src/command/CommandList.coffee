@@ -32,7 +32,7 @@ class CommandList extends Command
 		@
 
 	insertCommandArray: (index, commands) ->
-		@insertCommand(commands...)
+		@insertCommand(index, commands...)
 		@
 
 	_setParent: (commands) ->

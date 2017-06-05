@@ -38,6 +38,8 @@ module.exports = (grunt) ->
 					'src/command/JqueryAnimate.coffee'
 					'src/command/DoTweenJS.coffee'
 					'src/command/RequireScript.coffee'
+
+					'src/import.coffee'
 				]
 				dest: 'tmp/jppcorelib-concat.coffee'
 
@@ -46,12 +48,11 @@ module.exports = (grunt) ->
 				files:
 					'lib/jppcorelib.js': 'tmp/jppcorelib-concat.coffee'
 
-		min:
+		uglify:
 			jppcorelib:
-				src:
-					'lib/jppcorelib.js'
-				dest:
-					'lib/jppcorelib.min.js'
+				files: {
+					'lib/jppcorelib.min.js': 'lib/jppcorelib.js'
+				}
 
 		#========================================
 		# WATCH
@@ -67,11 +68,13 @@ module.exports = (grunt) ->
 	#========================================
 	# PLUGIN
 	#========================================
-	grunt.loadNpmTasks 'grunt-contrib'
+	grunt.loadNpmTasks 'grunt-contrib-coffee'
+	grunt.loadNpmTasks 'grunt-contrib-concat'
+	grunt.loadNpmTasks 'grunt-contrib-uglify'
 
 	#========================================
 	# TASK
 	#========================================
-	grunt.registerTask 'default', 'concat coffee min'
+	grunt.registerTask 'default', ['concat', 'coffee', 'uglify']
 	grunt.registerTask "r", "reload Google Chrome (OS X)", () -> require("child_process").exec 'osascript -e \'tell application \"Google Chrome\" to tell the active tab of its first window to reload\''
 	grunt.registerTask 'w', 'watch'
